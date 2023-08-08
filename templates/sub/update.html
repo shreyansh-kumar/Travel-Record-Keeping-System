@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Edit "{{ post[2] }}"{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form method="post">
+  <label for="mode">Mode</label>
+  <input name="mode" id="mode" value="{{ request.form['mode'] or post[1]}}" >
+  
+  <label for="ticket_num">Ticket Number</label>
+  <input name="ticket_num" id="ticket_num" value="{{ request.form['ticket_num'] or post[3]}}" >
+  
+  <label for="date_dep">Date of Departure</label>
+  <input name="date_dep" id="date_dep" value="{{ request.form['date_dep'] or post[4]}}" >
+  
+  <label for="date_arr">Date of Arrival</label>
+  <input name="date_arr" id="date_arr" value="{{ request.form['date_arr'] or post[5]}}" >
+  
+  <label for="travel_time">Travel Time</label>
+  <input name="travel_time" id="travel_time" value="{{ request.form['travel_time'] or post[6]}}" >
+
+  <label for="cost">Cost</label>
+  <input name="cost" id="cost" value="{{ request.form['cost'] or post[7]}}" >
+  
+  <input type="submit" value="Save">
+</form>
+  <hr>
+  <form action="{{ url_for('sub.delete', id=post[0], booking_id=post[2]) }}" method="post">
+    <input class="danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+  </form>
+{% endblock %}

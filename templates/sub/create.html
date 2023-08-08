@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}New Post{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="mode">Mode</label>
+    <input name="mode" id="mode" value="{{ request.form['mode'] }}" required>
+    
+    <label for="booking_id">Booking Id</label>
+    <input name="booking_id" id="booking_id" value="{{ request.form['booking_id'] }}" required>
+    
+    <label for="ticket_num">Ticket Number</label>
+    <input name="ticket_num" id="ticket_num" value="{{ request.form['ticket_num'] }}">
+    
+    <label for="date_dep">Date of Departure</label>
+    <input name="date_dep" id="date_dep" value="{{ request.form['date_dep'] }}" required>
+    
+    <label for="date_arr">Date of Arrival</label>
+    <input name="date_arr" id="date_arr" value="{{ request.form['date_arr'] }}" required>
+    
+    <label for="travel_time">Travel Time</label>
+    <input name="travel_time" id="travel_time" value="{{ request.form['travel_time'] }}" required>
+
+    <label for="cost">Cost</label>
+    <input name="cost" id="cost" value="{{ request.form['cost'] }}" required>
+    
+    <input type="submit" value="Save">
+  </form>
+{% endblock %}
